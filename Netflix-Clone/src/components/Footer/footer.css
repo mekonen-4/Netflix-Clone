@@ -1,0 +1,30 @@
+.footer-outer-container{
+    color: rgb(151, 148, 148);
+    padding: 20px;
+    
+}
+.footer-outer-container>div{
+    padding: 0 80px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.footer-outer-container li{
+    list-style-type: none;
+    margin-bottom: 16px;
+}
+.footer-inner-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+.social-media-container{
+    display: flex;
+    gap: 2%;
+    margin-bottom: 10px;
+  margin-left: 15px;
+    color: white;
+}
+
+.service-code{
+    text-align: center;
+    border: 2px solid white ;
+}

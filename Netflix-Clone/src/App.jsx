@@ -1,10 +1,11 @@
+import Home from './pages/Home/Home'
 import './App.css'
 function App() {
 
   return (
-    <>
-   <p >netflix </p>
-    </>
+    <div className='App'>
+      <Home></Home>
+    </div>
   )
 }
 

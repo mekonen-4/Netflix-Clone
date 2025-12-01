@@ -1,0 +1,40 @@
+.header-container{
+   position: sticky;
+   height: 10vh;
+   display: flex;
+   justify-content: space-between;
+
+    background-color: #000000;
+
+    color: white;
+    
+    padding: 0 10px 0 0 ;
+    
+}
+.header-container ul {
+    display: flex;
+    
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+    align-items: center;
+    padding-left: 10px;
+    gap: 3%;
+    cursor: pointer;
+    margin-left: 30px;
+
+}
+.header-container img{
+   width: 30%;
+   height: 100%;
+
+}
+.header-container li{
+    list-style-type: none;
+}
+.right-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 8px;
+}
