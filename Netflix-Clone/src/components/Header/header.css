@@ -3,7 +3,7 @@
    height: 10vh;
    display: flex;
    justify-content: space-between;
-
+    top: 0;
     background-color: #000000;
 
     color: white;
