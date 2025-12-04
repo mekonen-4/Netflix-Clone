@@ -1,15 +1,41 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import instance from '../../../utils/axios';
 import YouTube from 'react-youtube';
 import movieTrailer from 'movie-trailer';
 import CloseIcon from "@mui/icons-material/Close";
 import './row.css';
-const Row = ({title, fetchUrl,isLarge}) => {
+const Row = ({title, fetchUrl,isLarge,rowNumber}) => {
     const [movies, setMovies] = useState([]);
     const [trailerUrl, setTrailerUrl] = useState("");
     const [error, setError] = useState("");
     const [movieName, setMovieName] = useState("");
     const [isPlaying, setIsPlaying] = useState(false);
+    const scrollRef = useRef(null);
+    const [isHovered, setIsHovered] = useState(false);
+    useEffect(() => {
+      const scrollContainer = scrollRef.current;
+      if (!scrollContainer || isHovered) return;
+
+      const scroll = setInterval(() => {
+        if (rowNumber % 2 === 0) {
+          scrollContainer.scrollLeft += 0.5;
+          if (
+            scrollContainer.scrollLeft + scrollContainer.clientWidth >=
+            scrollContainer.scrollWidth
+          ) {
+            scrollContainer.scrollLeft = 0;
+          }
+        } else {
+          scrollContainer.scrollLeft -= 0.5;
+          if (scrollContainer.scrollLeft <= 0) {
+            scrollContainer.scrollLeft =
+              scrollContainer.scrollWidth - scrollContainer.clientWidth;
+          }
+        }
+      }, 25);
+
+      return () => clearInterval(scroll); // cleanup outside if/else
+    }, [isHovered, rowNumber]);
     
        useEffect(() => {
             (async function (){
@@ -17,7 +43,6 @@ const Row = ({title, fetchUrl,isLarge}) => {
                 setMovies(response.data.results);
             })();
         }, [fetchUrl]);
-        // console.log(movies);
         
         const handleTrailer = (movie)=>{
           const name =
@@ -31,10 +56,8 @@ const Row = ({title, fetchUrl,isLarge}) => {
               } else {
                 movieTrailer(name)
                   .then((url) => {
-                    console.log(url);
                     setMovieName(name);
                     const urlParams = new URLSearchParams(new URL(url).search);
-                    console.log(urlParams.get("v"));
                     setError("");
 
                     setTrailerUrl(urlParams.get("v"));
@@ -48,7 +71,6 @@ const Row = ({title, fetchUrl,isLarge}) => {
                     );
 
                     setTimeout(() => setError(""), 4000);
-                    console.log(error);
                   });
               }
             }
@@ -57,7 +79,12 @@ const Row = ({title, fetchUrl,isLarge}) => {
     return (
       <>
         <div className="row-header">{title}</div>
-        <div className="movie-poster">
+        <div
+          className="movie-poster"
+          ref={scrollRef}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           {movies.map((movie, index) => {
             // console.log(movie);
 
