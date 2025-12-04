@@ -13,7 +13,7 @@ const Banner = () => {
             }
             fetchBanner();
         },[])
-        console.log(movie);
+        // console.log(movie);
     if (movie){
         return (
           < >

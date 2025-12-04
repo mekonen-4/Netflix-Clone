@@ -9,12 +9,13 @@
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
-        justify-content: center;
-        flex-direction: column;
-        padding-left: 30px;
-        gap: 15px;
-        color: white;
-        position: relative;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 30px;
+    gap: 15px;
+    color: white;
+    position: relative;
+    margin-top: 10vh;
 }
 .banner-buttons{
     display: flex;
@@ -22,7 +23,6 @@
     gap: 25px;
     position: relative;
     z-index: 10;
-    /* margin-left: 30px; */
 }
 .my-list-button,
 .play-button{
@@ -35,7 +35,6 @@
 .play-button:hover{
     background-color: rgba(255, 255, 255, 0.7);
     cursor: pointer;
-    /* color: white; */
 }
 .my-list-button{
     background-color: rgba(0, 0, 0, 0.6);

@@ -1,0 +1,82 @@
+.row-header{
+    color: white;
+    font-size: 30px; 
+    font-weight: 700; 
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+.movie-poster{
+    display: flex;
+     overflow-y: hidden; 
+     overflow-x: scroll; 
+     padding: 10px 15px 10px 15px  ;
+    width: 100%;
+    gap: 14px;
+    scrollbar-width: none; /* Firefox */
+}
+.movie-poster img:hover {
+    transform: scale(1.08);
+    transition: all 450ms;
+}
+.movie-poster-large{
+    max-height: 250px;
+    object-fit: contain;
+    transition: all 450ms;
+    border-radius: 5px;
+   
+}
+.poster {
+    max-height: 150px;
+    object-fit: contain;
+    transition: all 450ms;
+    border-radius: 5px;
+}
+
+.view-trailor {
+    position: relative;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 15px;
+}
+
+
+.close-trailor-button{
+    /* display: none; */
+    /* color: white;
+    position: absolute;
+    top: 20%;
+    right: 50%;
+    transform: translate(-10%, -10%);
+    cursor: pointer; */
+    position: absolute;
+    top: 19px;
+    right: 70px;
+    z-index: 1000;
+    cursor: pointer;
+    transition: opacity 0.4s ease;
+    color: white;
+}
+/* .view-trailor:hover .close-trailor-button{
+    display: block;
+}
+.close-trailor-button:hover{
+    color: rgb(237, 30, 30);
+} */
+.close-trailor-button .CloseIcon{
+    font-size: 35px;
+    font-weight: bolder;
+}
+.close-trailor-button .CloseIcon:hover {
+    color: red;
+    border: 2px solid rgb(255, 255, 255);
+}
+.error-message {
+    color: red;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 15px;
+    background-color: black;
+    padding: 10px;
+    border-radius: 5px;
+}
