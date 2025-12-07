@@ -182,3 +182,19 @@ input::placeholder {
             gap: 5%;
         }
 }
+@media (max-width: 410px){
+    .home-li{
+        display: none;
+    }
+    .header-container ul{
+            gap: 3%;
+    margin-left: 2px;
+        }
+        .movie-category{
+            gap: 0px;
+        }
+        .right-header{
+            gap: 2px;
+        }
+        
+}

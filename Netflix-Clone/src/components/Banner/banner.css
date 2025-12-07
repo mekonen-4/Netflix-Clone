@@ -61,3 +61,30 @@
             rgba(37, 37, 37, 0.41),
             #111);
 }
+@media (max-width:500px) {
+    .banner{
+        height: 60vh;
+        padding-left: 15px;
+    }
+    .movie-description{
+        width: 250px;
+        font-size: 14px;
+    }
+    .my-list-button,
+    .play-button{
+        padding: 8px 20px;
+        font-size: 12px;
+    }
+        .banner{
+            gap: 2%;
+        }
+        .banner-buttons{
+            gap: 10px;
+        }
+        .banner .movie-description{
+            width: 220px;
+        }
+        .banner h1{
+            font-size: 25px;
+        }
+}

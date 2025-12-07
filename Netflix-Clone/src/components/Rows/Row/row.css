@@ -84,3 +84,19 @@
     padding: 10px;
     border-radius: 5px;
 }
+@media (max-width:600px) {
+    .row-header{
+        font-size: 20px; 
+        margin-left: 15px;
+    }
+    .movie-poster{
+        padding: 10px 5px 10px 15px  ;
+        gap: 10px;
+    }
+    .movie-poster-large{
+        max-height: 180px;
+    }
+    .poster {
+        max-height: 100px;
+    }
+}
