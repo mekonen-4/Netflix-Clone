@@ -21,10 +21,14 @@
     text-overflow: ellipsis;
     align-items: center;
     padding-left: 10px;
-    gap: 3%;
+    gap: 2%;
     cursor: pointer;
     margin-left: 15px;
 
+}
+.header-container ul a{
+    text-decoration: none;
+    color: white;
 }
 .netflix-img{
    width: 30%;
@@ -35,7 +39,8 @@
     list-style-type: none;
 }
 .movie-category{
-    display: none;
+    display: flex;
+    position: relative;
     align-items: center;
     gap: 2px;
 }
@@ -53,25 +58,34 @@
 }
 .category-list{
     position: absolute;
-    top: 10vh;
+    top: 100%;
+    left: 0;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
     border: 1px solid white;
     display: flex;
     /* flex-direction: column; */
     gap: 8%;
+    /* margin-top: 5px; */
 }
 .hide-category-list{
     display: none;
 }
-.category-list div li{
+.category-list div li {
     margin-bottom: 10px;
 }
+.category-list a{
+    text-decoration: none;
+    color: white;
+}
 .category-list div li:hover{
-    text-decoration: underline;
+    border: 2px solid red;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2px 5px;
+    /* text-decoration: underline;
     text-underline-offset: 5px;
     text-decoration-color: red;
-    text-decoration-thickness: 3px;
+    text-decoration-thickness: 3px; */
     /* cursor: pointer; */
 
 }
@@ -118,9 +132,7 @@ input::placeholder {
 }
 
 @media (max-width: 768px) {
-    .movie-category{
-        display: flex;
-    }
+    
     .latest-li{
         display: none;
     }
@@ -145,6 +157,6 @@ input::placeholder {
         display: none;
     }
         .header-container ul{
-            gap: 8%;
+            gap: 5%;
         }
 }

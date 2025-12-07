@@ -4,7 +4,7 @@ import YouTube from 'react-youtube';
 import movieTrailer from 'movie-trailer';
 import CloseIcon from "@mui/icons-material/Close";
 import './row.css';
-const Row = ({title, fetchUrl,isLarge,rowNumber}) => {
+const Row = ({id,title, fetchUrl,isLarge,rowNumber}) => {
     const [movies, setMovies] = useState([]);
     const [trailerUrl, setTrailerUrl] = useState("");
     const [error, setError] = useState("");
@@ -77,8 +77,10 @@ const Row = ({title, fetchUrl,isLarge,rowNumber}) => {
         
         
     return (
-      <>
-        <div className="row-header">{title}</div>
+      <div className="row" id={id}>
+        <div className="row-header" >
+          {title}
+        </div>
         <div
           className="movie-poster"
           ref={scrollRef}
@@ -130,7 +132,7 @@ const Row = ({title, fetchUrl,isLarge,rowNumber}) => {
             {error}
           </p>
         )}
-      </>
+      </div>
     );
 }
 

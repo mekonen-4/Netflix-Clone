@@ -12,7 +12,7 @@ const Header = () => {
   const [showCategory, setShowCategory] = useState(false);
   const [showSearchInput, setShowSearchInput] = useState(false);
   
-
+const isMobile = window.innerWidth <= 768;
  
   const handleCategoryShow = () => {
     setShowCategory(!showCategory);
@@ -24,35 +24,50 @@ const Header = () => {
       <>
         <div className="header-container">
           <ul>
-            <img className="netflix-img" src={netflix} alt="" />
+            <img className="netflix-img" src={netflix} alt="Logo" />
 
             <img
               className="netflix-mobile-logo"
               src={mobileNetflixLogo}
-              alt=""
+              alt="Logo"
             />
 
-            <li className="home-li">Home</li>
-            <li className="tvshow-li">Tvshows</li>
-            <li className="movies-li">Movies</li>
-            <li className="latest-li">Latest</li>
-            <li className="mylist-li">MyList</li>
-            <div className="movie-category">
-              <li
+            <li className="home-li">
+              <a
                 onClick={() => {
-                  handleCategoryShow();
-                  setShowSearchInput(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  setShowCategory(false);
                 }}
-               
-                onMouseEnter={() => {
-                  setShowCategory(true);
-                  setShowSearchInput(false);
-
-                }}
-                
+                href="#"
               >
-                Category
-              </li>
+                Home
+              </a>
+            </li>
+            <li className="tvshow-li">
+              <a href="#tvShows">Tvshows</a>
+            </li>
+
+            <li className="movies-li">
+              {" "}
+              <a href="#netflixOriginals">Movies</a>
+            </li>
+            {/* <li className="latest-li">Latest</li> */}
+            <li className="mylist-li">MyList</li>
+            <div
+              onClick={() => {
+                if (isMobile) handleCategoryShow();
+                setShowSearchInput(false);
+              }}
+              onMouseEnter={() => {
+                if (!isMobile) setShowCategory(true);
+              }}
+              onMouseLeave={() => {
+                if (!isMobile) setShowCategory(false);
+                else setShowCategory(false);
+              }}
+              className="movie-category"
+            >
+              <li>Category</li>
               <ArrowDropDownIcon onClick={() => handleCategoryShow()} />
               <ol
                 className={
@@ -62,14 +77,54 @@ const Header = () => {
                 }
               >
                 <div>
-                  <li>Action</li>
-                  <li>Comedy</li>
-                  <li>horor</li>
+                  <li>
+                    <a
+                      onClick={() => setShowCategory(false)}
+                      href="#actionMovies"
+                    >
+                      Action
+                    </a>
+                  </li>
+                  <li>
+                    {" "}
+                    <a
+                      onClick={() => setShowCategory(false)}
+                      href="#comedyMovies"
+                    >
+                      Comedy
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      onClick={() => setShowCategory(false)}
+                      href="#horrorMovies"
+                    >
+                      Horror
+                    </a>
+                  </li>
                 </div>
                 <div>
-                  <li>Romance</li>
-                  <li>Documentary</li>
-                  <li>Tv Shows</li>
+                  <li>
+                    <a
+                      onClick={() => setShowCategory(false)}
+                      href="#romanceMovies"
+                    >
+                      Romance
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      onClick={() => setShowCategory(false)}
+                      href="#documentaries"
+                    >
+                      Documentary
+                    </a>
+                  </li>
+                  <li>
+                    <a onClick={() => setShowCategory(false)} href="#tvShows">
+                      Tv Shows
+                    </a>
+                  </li>
                 </div>
               </ol>
             </div>
