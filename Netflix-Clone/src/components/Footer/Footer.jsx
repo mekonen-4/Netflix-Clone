@@ -8,11 +8,9 @@ const Footer = () => {
       <div className="footer-outer-container">
         <div>
           <div className="social-media-container">
-           
-              <FacebookOutlinedIcon />
-              <InstagramIcon />
-              <YouTubeIcon />
-           
+            <FacebookOutlinedIcon />
+            <InstagramIcon />
+            <YouTubeIcon />
           </div>
           <div className="footer-inner-wrapper">
             <div>
@@ -20,11 +18,7 @@ const Footer = () => {
                 <li>Audio Description</li>
                 <li>Investor Relations</li>
                 <li>Legal Notice</li>
-                <li className="service-code">Service Code</li>
-                <li> &copy; 1997-2004 Netflix Inc </li>
               </ul>
-            </div>
-            <div>
               <ul>
                 <li>Help Center</li>
                 <li>Jobs</li>
@@ -37,14 +31,16 @@ const Footer = () => {
                 <li>Terms of Use</li>
                 <li>Corporate Information</li>
               </ul>
-            </div>
-            <div>
               <ul>
                 <li>Media Center</li>
                 <li>Privacy</li>
                 <li>Contact Us</li>
               </ul>
             </div>
+          </div>
+          <div className='footer-bottom'>
+            <p className="service-code">Service Code</p>
+            <p> &copy; 1997-2004 Netflix Inc </p>
           </div>
         </div>
       </div>

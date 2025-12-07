@@ -11,6 +11,8 @@
     
     padding: 0 10px 0 0 ;
     width: 100%;
+   font-weight: 500;
+    /* font-size: 16px; */
     
 }
 .header-container ul {
@@ -25,10 +27,30 @@
     cursor: pointer;
     margin-left: 15px;
 
+    
 }
 .header-container ul a{
-    text-decoration: none;
-    color: white;
+    position: relative;
+        /* Add this */
+        text-decoration: none;
+        color: white;
+        display: inline-block;
+        /* Important so pseudo-element fits text only */
+        padding: 5px 0;
+}
+.header-container ul a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(229, 9, 20, 1), transparent);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+.header-container ul a:hover::after {
+  width: 100%;               /* only underline this element */
 }
 .netflix-img{
    width: 30%;

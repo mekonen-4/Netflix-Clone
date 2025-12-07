@@ -24,9 +24,21 @@ const isMobile = window.innerWidth <= 768;
       <>
         <div className="header-container">
           <ul>
-            <img className="netflix-img" src={netflix} alt="Logo" />
+            <img
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                setShowCategory(false);
+              }}
+              className="netflix-img"
+              src={netflix}
+              alt="Logo"
+            />
 
             <img
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+                setShowCategory(false);
+              }}
               className="netflix-mobile-logo"
               src={mobileNetflixLogo}
               alt="Logo"
@@ -52,7 +64,9 @@ const isMobile = window.innerWidth <= 768;
               <a href="#netflixOriginals">Movies</a>
             </li>
             {/* <li className="latest-li">Latest</li> */}
-            <li className="mylist-li">MyList</li>
+            <li className="mylist-li">
+              <a href="#">MyList</a>
+            </li>
             <div
               onClick={() => {
                 if (isMobile) handleCategoryShow();
@@ -82,7 +96,7 @@ const isMobile = window.innerWidth <= 768;
                       onClick={() => setShowCategory(false)}
                       href="#actionMovies"
                     >
-                      Action
+                      <span>Action</span>
                     </a>
                   </li>
                   <li>
@@ -91,7 +105,7 @@ const isMobile = window.innerWidth <= 768;
                       onClick={() => setShowCategory(false)}
                       href="#comedyMovies"
                     >
-                      Comedy
+                      <span>Comedy</span>
                     </a>
                   </li>
                   <li>
@@ -99,7 +113,7 @@ const isMobile = window.innerWidth <= 768;
                       onClick={() => setShowCategory(false)}
                       href="#horrorMovies"
                     >
-                      Horror
+                      <span>Horror</span>
                     </a>
                   </li>
                 </div>
@@ -109,7 +123,7 @@ const isMobile = window.innerWidth <= 768;
                       onClick={() => setShowCategory(false)}
                       href="#romanceMovies"
                     >
-                      Romance
+                      <span>Romance</span>
                     </a>
                   </li>
                   <li>
@@ -117,18 +131,20 @@ const isMobile = window.innerWidth <= 768;
                       onClick={() => setShowCategory(false)}
                       href="#documentaries"
                     >
-                      Documentary
+                      <span>Documentary</span>
                     </a>
                   </li>
                   <li>
                     <a onClick={() => setShowCategory(false)} href="#tvShows">
-                      Tv Shows
+                      <span>Tv Shows</span>
                     </a>
                   </li>
                 </div>
               </ol>
             </div>
-            <li className="li-browse-language">Browse by Languages</li>
+            <li className="li-browse-language">
+              <a href="#browseLanguages">Browse by Languages</a>
+            </li>
           </ul>
           <div className="right-header">
             <li
