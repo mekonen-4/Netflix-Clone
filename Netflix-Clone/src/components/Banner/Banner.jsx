@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../../utils/axios'
 import requests from '../../utils/requests'
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import './banner.css'
 const Banner = () => {
     // console.log(requests);
     const [movie,setMovie]=useState(null)
+    const [isShort,setIsShort]=useState(true)
     useEffect(()=>{
         const fetchBanner = async()=>{ 
             const response = await axios.get(requests.fetchNetflixOriginals);
@@ -16,7 +18,7 @@ const Banner = () => {
         // console.log(movie);
     if (movie){
         return (
-          < >
+          <>
             <div
               className="banner"
               style={{
@@ -30,11 +32,21 @@ const Banner = () => {
                 <button className="my-list-button">My List</button>
               </div>
               <div className="movie-description">
-                {movie?.overview.length > 140
-                  ? movie?.overview.slice(0, 140) + "..."
-                  : movie?.overview}
+                {movie?.overview.length > 140 && isShort ? (
+                  <>
+                    {movie?.overview.slice(0, 140) + "  "}
+                    <span
+                      onClick={() => setIsShort(false)}
+                      style={{ cursor: "pointer",color:"blue" }}
+                    >
+                      ... read more
+                    </span>
+                  </>
+                ) : (
+                  movie?.overview
+                )}
               </div>
-                <div className="banner_fadeBottom"></div>
+              <div className="banner_fadeBottom"></div>
             </div>
           </>
         );
