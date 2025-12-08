@@ -81,7 +81,9 @@ const isMobile = window.innerWidth <= 768;
               }}
               className="movie-category"
             >
-              <li>Category</li>
+              <li>
+                <a href >Category</a>
+              </li>
               <ArrowDropDownIcon onClick={() => handleCategoryShow()} />
               <ol
                 className={

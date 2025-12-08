@@ -45,21 +45,17 @@
 }
 
 
-.close-trailor-button{
-    /* display: none; */
-    /* color: white;
+.close-trailor-button {
     position: absolute;
-    top: 20%;
-    right: 50%;
-    transform: translate(-10%, -10%);
-    cursor: pointer; */
-    position: absolute;
-    top: 19px;
-    right: 70px;
-    z-index: 1000;
+    top: -45px;
+    /* moves it above the video */
+    right: 15px;
+    z-index: 100;
     cursor: pointer;
-    transition: opacity 0.4s ease;
-    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 8px;
+    border-radius: 50%;
+    transition: 0.3s;
 }
 /* .view-trailor:hover .close-trailor-button{
     display: block;
@@ -70,9 +66,12 @@
 .close-trailor-button .CloseIcon{
     font-size: 35px;
     font-weight: bolder;
+    color: white;
 }
 .close-trailor-button .CloseIcon:hover {
     color: red;
+   
+    border-radius: 50%;
     border: 2px solid rgb(255, 255, 255);
 }
 .error-message {
@@ -83,6 +82,53 @@
     background-color: black;
     padding: 10px;
     border-radius: 5px;
+}
+.trailer-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 390px;
+    background: black;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    border-top: 5px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+.trailer-loading p {
+    color: white;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Spinner animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 @media (max-width:600px) {
     .row-header{
@@ -98,5 +144,11 @@
     }
     .poster {
         max-height: 100px;
+    }
+}
+@media (max-width: 600px) {
+    .close-trailor-button {
+        top: -40px;
+        right: 10px;
     }
 }

@@ -10,6 +10,7 @@ const Row = ({id,title, fetchUrl,isLarge,rowNumber}) => {
     const [error, setError] = useState("");
     const [movieName, setMovieName] = useState("");
     const [isPlaying, setIsPlaying] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const scrollRef = useRef(null);
     const [isHovered, setIsHovered] = useState(false);
     useEffect(() => {
@@ -48,7 +49,7 @@ const Row = ({id,title, fetchUrl,isLarge,rowNumber}) => {
           const name =
             movie?.name || movie?.original_name || movie?.title || "";
 
-            setIsPlaying(true);
+            // setIsPlaying(true);
             if(trailerUrl && movieName === name ){
               
                 setTrailerUrl("");
@@ -61,10 +62,12 @@ const Row = ({id,title, fetchUrl,isLarge,rowNumber}) => {
                     setError("");
 
                     setTrailerUrl(urlParams.get("v"));
+                      setIsLoading(true);
                   })
                   .catch(() => {
                     setTrailerUrl("");
                     setIsPlaying(false);
+                    setIsLoading(false);
 
                     setError(
                       "Sorry, we couldn’t find a trailer for this movie."
@@ -78,9 +81,7 @@ const Row = ({id,title, fetchUrl,isLarge,rowNumber}) => {
         
     return (
       <div className="row" id={id}>
-        <div className="row-header" >
-          {title}
-        </div>
+        <div className="row-header">{title}</div>
         <div
           className="movie-poster"
           ref={scrollRef}
@@ -109,13 +110,28 @@ const Row = ({id,title, fetchUrl,isLarge,rowNumber}) => {
               trailerUrl &&
               (isPlaying ? "close-trailor-button" : "close-button")
             }
-            onClick={() => setTrailerUrl("")}
+            onClick={() => {
+              setTrailerUrl("");
+              setIsPlaying(false);
+              setIsLoading(false);
+            }}
           >
             {trailerUrl && isPlaying && <CloseIcon className="CloseIcon" />}
           </div>
+          {isLoading && (
+            <div className="trailer-loading">
+              <div className="spinner"></div>
+              <p>Loading trailer...</p>
+            </div>
+          )}
           {trailerUrl && (
             <YouTube
               videoId={trailerUrl}
+              onReady={() => setIsLoading(false)}
+              onPlay={() => {
+                setIsPlaying(true);
+                setIsLoading(false);
+              }}
               opts={{
                 height: "390",
                 width: "100%",

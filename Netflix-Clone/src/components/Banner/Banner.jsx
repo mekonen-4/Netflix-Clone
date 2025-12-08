@@ -53,7 +53,7 @@ const Banner = () => {
     }
     else{
         return(
-            <div>didnot</div>
+            <div>Can not reach this page</div>
         )
     }
 }
