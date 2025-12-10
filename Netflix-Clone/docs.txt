@@ -1,4 +1,0 @@
-
-if on same row on click the other movie open that movie not only close the other and clicking again the same movie closes the trailor and additional feature close video based on the provided close button 
-
-trailor not found message
